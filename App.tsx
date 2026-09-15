@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Image, KeyboardAvoidingView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import CoffeeCard from './components/CoffeeCard';
 
 export default function App() {
   const [name,setName]=useState('');
@@ -49,26 +51,10 @@ export default function App() {
           <Text style={styles.sectionTitle}>Nosso cardápio</Text>
 
           <View style={styles.menu}>
-            <View style={styles.cardItem}>
-              <Text style={styles.cardTitle}>Espresso</Text>
-              <Text style={styles.cardDescription}>Puro e forte</Text>
-              <Text style={styles.cardPrice}>R$ 7,00</Text>
-            </View>
-            <View style={styles.cardItem}>
-              <Text style={styles.cardTitle}>Cappucino</Text>
-              <Text style={styles.cardDescription}>Clássico com espuma</Text>
-              <Text style={styles.cardPrice}>R$ 12,90</Text>
-            </View>
-            <View style={styles.cardItem}>
-              <Text style={styles.cardTitle}>Latte</Text>
-              <Text style={styles.cardDescription}>Leite cremoso</Text>
-              <Text style={styles.cardPrice}>R$ 11,50</Text>
-            </View>
-            <View style={styles.cardItem}>
-              <Text style={styles.cardTitle}>Mocha</Text>
-              <Text style={styles.cardDescription}>Toque de chocolate</Text>
-              <Text style={styles.cardPrice}>R$ 13,50</Text>
-            </View>
+            <CoffeeCard name="Expresso" description="Puro e forte" price="7,00"></CoffeeCard>
+            <CoffeeCard name="Cappucino" description="Clássico com espuma" price="12,90"></CoffeeCard>
+            <CoffeeCard name="Latter" description="Leite cremoso" price="11,50"></CoffeeCard>
+            <CoffeeCard name="Mocha" description="Toque de chocolate" price="13,50"></CoffeeCard>
           </View>
           {/* Section */}
 
@@ -90,9 +76,7 @@ export default function App() {
         </View>
         {/* Body */}
         {/* Footer */}
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>Cafeteria de Fulano</Text>
-        </View>
+        <Footer></Footer>
         {/* Footer */}
       </ScrollView>
     </KeyboardAvoidingView>
@@ -106,33 +90,7 @@ const styles = StyleSheet.create({
 
     //Header
   },
-  header: {
-    width: '100%',
-    paddingTop: 60,
-    paddingHorizontal: 24,
-    paddingBottom: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  headerTitle: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: "#2F2D2C"
-  },
-  headerSubtitle: {
-    fontSize: 14,
-    color: "#9B9B9B",
-    marginTop: 4
-  },
-  avatarPlaceholder: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    backgroundColor: "#F0F0F0",
-    justifyContent: "center",
-    alignItems: "center"
-  },
+ 
   //Header
 
   //Body
@@ -205,34 +163,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 20
   },
-  cardItem: {
-    width: "48%",
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    padding: 16,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
-    elevation: 3,
-    marginBottom: 16,
-  },
-  cardTitle: {
-    fontSize: 16,
-    fontWeight: "700",
-    color: "#2F2D2C"
-  },
-  cardDescription: {
-    fontSize: 12,
-    color: "#9B9B9B",
-    marginTop: 4,
-    lineHeight: 16
-  },
-  cardPrice: {
-    fontSize: 16,
-    fontWeight: "800",
-    color: "#C67C4E",
-    marginTop: 12
-  },
   orderSection: {
     padding: 24,
     backgroundColor: "#ffffff",
@@ -270,16 +200,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#ffffff",
 
-  },
-  footer:{
-    padding: 20,
-    alignItems: "center",
-    marginBlock: 20
-  },
-  footerText:{
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#9b9b9b"
   },
   messageText:{
     fontSize: 16,
